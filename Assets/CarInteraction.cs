@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class CarInteraction : MonoBehaviour
 {
     [SerializeField] private InputField yearInputField;
     [SerializeField] private InputField makeInputField;
-    [SerializeField] private Text carDisplayText;
+    [SerializeField] private TMP_Text carDisplayText;
     [SerializeField] private Button submitButton;
     private bool carExists;
     private Car playerCar;
@@ -15,7 +16,7 @@ public class CarInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        CreateCar(2001,"butt");
     }
 
     // Update is called once per frame
@@ -26,10 +27,12 @@ public class CarInteraction : MonoBehaviour
             if (Input.GetKeyDown("up"))
             {
                 Debug.Log("Accelerate");
+                carDisplayText.text = playerCar.ToString();
             }
             if (Input.GetKeyDown("down"))
             {
                 Debug.Log("Decelerate");
+                carDisplayText.text = playerCar.ToString();
             }
         }
     }
