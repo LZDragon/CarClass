@@ -24,14 +24,16 @@ public class CarInteraction : MonoBehaviour
     {
         if (carExists)
         {
-            if (Input.GetKeyDown("up"))
+            if (Input.GetKey("up"))
             {
                 Debug.Log("Accelerate");
+                playerCar.Accelerate(1);
                 carDisplayText.text = playerCar.ToString();
             }
-            if (Input.GetKeyDown("down"))
+            if (Input.GetKey("down"))
             {
                 Debug.Log("Decelerate");
+                playerCar.Decelerate(1);
                 carDisplayText.text = playerCar.ToString();
             }
         }
