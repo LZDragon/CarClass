@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class CarInteraction : MonoBehaviour
 {
-    [SerializeField] private InputField yearInputField;
-    [SerializeField] private InputField makeInputField;
+    [SerializeField] private TMP_InputField yearInputField;
+    [SerializeField] private TMP_InputField makeInputField;
     [SerializeField] private TMP_Text carDisplayText;
     [SerializeField] private Button submitButton;
     private bool carExists;
@@ -16,7 +16,7 @@ public class CarInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateCar(2001,"butt");
+        DisplayUserPrompt();
     }
 
     // Update is called once per frame
@@ -41,7 +41,13 @@ public class CarInteraction : MonoBehaviour
 
     void DisplayUserPrompt()
     {
-        submitButton.onClick.AddListener(() =>CreateCar(0,"butt"));
+        submitButton.onClick.AddListener(OnSubmitButtonClick);
+    }
+
+    void OnSubmitButtonClick()
+    {
+        
+        CreateCar(int.Parse(yearInputField.text), makeInputField.text);
     }
 
     void CreateCar(int year, string make)
@@ -52,6 +58,7 @@ public class CarInteraction : MonoBehaviour
             {
                 playerCar = new Car(year, make);
                 carExists = true;
+                Debug.Log("Car Made");
             }
             else
             {
