@@ -44,20 +44,18 @@ public class CarInteraction : MonoBehaviour
     void DisplayUserPrompt()
     {
         inputUI.SetActive(true);
-        submitButton.onClick.AddListener(OnSubmitButtonClick);
+        submitButton.onClick.AddListener(ValidateInput);
     }
 
-    void OnSubmitButtonClick()
+    void ValidateInput()
     {
         int year = int.Parse(yearInputField.text);
         string make = makeInputField.text;
         if (year <= 2024 && year >= 1886)
         {
             if (make != "")
-            {
-                playerCar = new Car(year, make);
-                Debug.Log("Car Made");
-                carExists = true;
+            {   
+                CreateCar(year,make);
                 inputUI.SetActive(false);
             }
             else
@@ -76,25 +74,12 @@ public class CarInteraction : MonoBehaviour
 
     void CreateCar(int year, string make)
     {
-        if (year <= 2024 && year >= 1886)
-        {
-            if (make != "")
-            {
-                playerCar = new Car(year, make);
-                carExists = true;
-                Debug.Log("Car Made");
-            }
-            else
-            {
-                Debug.Log("Make field is empty");
-            }
-        }
-        else
-        {
-            Debug.Log("Invalid year");
-            //Todo:display year error
-            //Todo: clear input field
-        }
+        playerCar = new Car(year, make);
+        Debug.Log("Car Made");
+        carExists = true;
+        carDisplayText.text = playerCar.ToString();
+        carDisplayText.gameObject.SetActive(true);
     }
+    
     
 }
