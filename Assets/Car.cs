@@ -40,7 +40,7 @@ public class Car
     }
     
 
-    public void Accelerate(int rate)
+    public void Accelerate(byte rate)
     {
         if ((currentSpeed + rate) >= maxSpeed)
         {
