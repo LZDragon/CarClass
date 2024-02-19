@@ -19,25 +19,18 @@ public class Car
         maxSpeed = 100;
     }
 
-    public int GetYear()
+    public string Make
     {
-        return year;
+        get => make;
+        set => make = value;
     }
 
-    public void SetYear(int year)
+    public int Year
     {
-        this.year = year;
+        get => year;
+        set => year = value;
     }
-
-    public string GetMake()
-    {
-        return make;
-    }
-
-    public void SetMake(string make)
-    {
-        this.make = make;
-    }
+    
 
     public void Accelerate(int rate)
     {
