@@ -1,3 +1,11 @@
+//////////////////////////////////////////////
+//Assignment/Lab/Project: Car Class
+//Name: Eliza Majernik
+//Section: SGD.213.2172
+//Instructor: Brian Sowers
+//Date: 2/19/2024
+/////////////////////////////////////////////
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
